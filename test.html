@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>111</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<div ui-view></div>
+<script src="dist/angular.js"></script>
+<script src="dist/angular-ui-router.js"></script>
+<script>
+    var app = angular.module("app",  ["ui.router"]);
+    app.config(function ($stateProvider, $urlRouterProvider) {
+        // 默认进入先重定向
+        $urlRouterProvider.otherwise('/home');
+        $stateProvider.state(
+        "home", {
+            "url": "/home",
+            views: {
+                "": {
+                    templateUrl: "templates/test.html"
+                }
+            }
+        });
+    });
+    app.controller("controller",function ($scope) {
+        $scope.table="asdasdasd";
+    });
+</script>
+</body>
+</html>
